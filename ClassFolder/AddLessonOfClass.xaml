@@ -1,0 +1,54 @@
+﻿<Window x:Class="FuckingSchoolProject.ClassFolder.AddLessonOfClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FuckingSchoolProject.ClassFolder"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="AddLessonOfClass" Height="280" Width="600">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Предмет:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <TextBlock Text="Преподаватель:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+        <TextBlock Text="Количество часов в неделю" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+
+        <ComboBox x:Name="CBoxLessonName" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10" SelectionChanged="CBoxLessonName_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="CBoxTeacherName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox x:Name="TBoxLessonHours" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10" materialDesign:HintAssist.Hint="Количество часов предмета в неделю" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <StackPanel Orientation="Horizontal"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="AcceptLessonOfClass" IsDefault="True" Content="Сохранить" Margin ="7" Click="AcceptLessonOfClass_Click"/>
+            <Button x:Name ="CanselLessonOfClass" IsCancel="True" Content="Отмена" Margin="7" Style="{StaticResource MaterialDesignFlatButton}"/>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
